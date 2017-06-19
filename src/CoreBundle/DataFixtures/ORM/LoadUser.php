@@ -35,7 +35,7 @@ class LoadUser extends AbstractFixture implements OrderedFixtureInterface
             if ($i < 1){
                 $User->setRoles(['ROLE_ADMIN']);
             }
-            elseif ($i > 1 AND $i < 3){
+            elseif ($i > 0 AND $i < 3){
                 $User->setRoles(['ROLE_MODO']);
             }
             else{

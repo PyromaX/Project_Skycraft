@@ -24,13 +24,6 @@ class User implements UserInterface
     private $id;
 
     /**
-     *
-     * @ORM\OneToMany(targetEntity="BlogBundle\Entity\Post", mappedBy="user")
-     *
-     */
-    private $posts;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=255, unique=true)
@@ -64,11 +57,6 @@ class User implements UserInterface
      * @ORM\Column(name="roles", type="array")
      */
     private $roles = array();
-
-    public function __construct()
-    {
-        $this->posts = new ArrayCollection();
-    }
 
     public function eraseCredentials()
     {
@@ -194,14 +182,6 @@ class User implements UserInterface
     public function getRoles()
     {
         return $this->roles;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPosts()
-    {
-        return $this->posts;
     }
 
 }
