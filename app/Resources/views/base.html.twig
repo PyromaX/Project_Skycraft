@@ -18,11 +18,20 @@
             .affix + .container-fluid {
                 padding-top: 70px;
             }
+
+            .logo-nav{
+                position: absolute;
+                top: -86px;
+            }
+
+            nav li{
+                text-align: center;
+            }
         </style>
     </head>
     <body>
         <header>
-            <div class="container-fluid" style="background-color:#F44336;color:#fff;height:200px;"></div>
+            <div class="container-fluid" style="background-color:#F44336;color:#fff;height:200px;background-image: url("http://imgur.com/a/cLYtg");"></div>
             <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
                 <ul class="nav col-sm-5">
                     <li class="col-sm-4 "><a href="{{ path('core_homepage') }}">Accueil</a></li>
@@ -30,7 +39,7 @@
                     <li class="col-sm-4"><a href="#">Vote</a></li>
                 </ul>
                 <div class="nav col-sm-2">
-                    <a class="col-sm-12" href="{{ path('core_homepage') }}"><img src="http://i.imgur.com/ArqTETp.png" title="logo" class="col-sm-12 on-top"/></a>
+                    <a class="col-sm-12" href="{{ path('core_homepage') }}"><img src="http://i.imgur.com/ArqTETp.png" title="logo" class="col-sm-12 logo-nav"/></a>
                 </div>
                 <ul class="nav col-sm-5">
                     <li class="col-sm-4"><a href="#">Info et réglement</a></li>
@@ -47,12 +56,12 @@
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="">Panneau de commandes</a></li>
                                         <li role="presentation" class="divider"></li>
                                     {%  endif %}
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{  path('logout') }}">Déconnexion</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="{{  path('fos_user_security_logout') }}">Déconnexion</a></li>
                                 </ul>
                             </div>
                         </li>
                     {%  else %}
-                        <li class="col-sm-4"><a href="{{ path('login') }}">Connexion</a></li>
+                        <li class="col-sm-4"><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
                     {% endif %}
                 </ul>
             </nav>
