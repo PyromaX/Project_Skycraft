@@ -3,37 +3,20 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
+        {% stylesheets
+            'css/framework/bootstrap.css'
+            'css/head_nav.css'
+            'css/main_page.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-              integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-              crossorigin="anonymous">
-        <style>
-            .affix {
-                top: 0;
-                width: 100%;
-            }
-
-            .affix + .container-fluid {
-                padding-top: 70px;
-            }
-
-            .logo-nav{
-                position: absolute;
-                top: -86px;
-            }
-
-            nav li{
-                text-align: center;
-            }
-        </style>
     </head>
     <body>
         <header>
-            <div class="container-fluid" style="background-color:#F44336;color:#fff;height:200px;background-image: url("http://imgur.com/a/cLYtg");"></div>
-            <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
-                <ul class="nav col-sm-5">
+            <div class="container-fluid banniere"></div>
+            <nav class="navbar navbar-inverse nav-global" data-spy="affix" data-offset-top="197">
+                <ul class="nav col-sm-5 nav-contain">
                     <li class="col-sm-4 "><a href="{{ path('core_homepage') }}">Accueil</a></li>
                     <li class="col-sm-4"><a href="#">Boutique</a></li>
                     <li class="col-sm-4"><a href="#">Vote</a></li>
@@ -41,13 +24,13 @@
                 <div class="nav col-sm-2">
                     <a class="col-sm-12" href="{{ path('core_homepage') }}"><img src="http://i.imgur.com/ArqTETp.png" title="logo" class="col-sm-12 logo-nav"/></a>
                 </div>
-                <ul class="nav col-sm-5">
-                    <li class="col-sm-4"><a href="#">Info et réglement</a></li>
+                <ul class="nav col-sm-5 nav-contain">
+                    <li class="col-sm-4"><a href="#">Support</a></li>
                     <li class="col-sm-4"><a href="#">Profil</a></li>
                     {% if is_granted('ROLE_USER') %}
                         <li class="col-sm-4">
                             <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                <button class="btn btn-default dropdown-toggle btn-block btn-user" type="button" id="dropdownMenu1" data-toggle="dropdown">
                                     {{ app.user.username }}
                                     <span class="caret"></span>
                                 </button>
@@ -61,34 +44,61 @@
                             </div>
                         </li>
                     {%  else %}
-                        <li class="col-sm-4"><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                        <li class="col-sm-4"><button type="button" class="btn btn-default btn-user btn-block" data-toggle="modal" data-target="#myModal">Connexion</button></li>
+
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Modal Header</h4>
+                                    </div>
+                                    <div class="modal-body row">
+                                        <div class="col-xs-5">
+                                            <form method="post" action="{{ path('fos_user_security_check') }}">
+                                                <div class="form-group">
+                                                    <label for="email">Email :</label>
+                                                    <input type="email" class="form-control" id="email">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="pwd">Password:</label>
+                                                    <input type="password" class="form-control" id="pwd">
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox"> Remember me</label>
+                                                </div>
+                                                <button type="submit" class="btn btn-default">Submit</button>
+                                            </form>
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <hr>
+                                        </div>
+                                        <div class="col-xs-5">
+
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     {% endif %}
                 </ul>
             </nav>
-            <div class="container-fluid" style="height:1000px">
-                <h1>Some text to enable scrolling</h1>
-                <h1>Some text to enable scrolling</h1>
-                <h1>Some text to enable scrolling</h1>
-                <h1>Some text to enable scrolling</h1>
-                <h1>Some text to enable scrolling</h1>
-                <h1>Some text to enable scrolling</h1>
-                <h1>Some text to enable scrolling</h1>
-                <h1>Some text to enable scrolling</h1>
-                <h1>Some text to enable scrolling</h1>
-                <h1>Some text to enable scrolling</h1>
-                <h1>Some text to enable scrolling</h1>
-            </div>
         </header>
         <main>
             {% block body %}{% endblock %}
         </main>
-        <script
-                src="https://code.jquery.com/jquery-3.2.1.min.js"
-                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-                crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-                crossorigin="anonymous"></script>
+        {% javascripts
+            'js/framework/jquery-3.2.1.min.js'
+            'js/framework/bootstrap.js'
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

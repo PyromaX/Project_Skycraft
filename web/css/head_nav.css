@@ -1,0 +1,37 @@
+.affix {
+    top: 0;
+    width: 100%;
+}
+
+.affix + .container-fluid {
+    padding-top: 70px;
+}
+
+.logo-nav{
+    position: absolute;
+    top: -4.5vw;
+}
+
+nav li, .btn-user{
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
+    color: #337ab7;
+}
+
+.banniere {
+    height:200px;
+    background-image: url('http://i.imgur.com/VbQwHp2.jpg');
+}
+
+.nav-contain {
+    margin-top: 3px;
+    padding-right: 0;
+    height: 100%;
+}
+
+.nav-global{
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+}
