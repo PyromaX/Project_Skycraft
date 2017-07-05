@@ -1,6 +1,6 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<form name="fos_user_registration_form" method="post" action="/register/" class="fos_user_registration_register signin">
+<form name="fos_user_registration_form" method="post" action="{{ path("fos_user_registration_register") }}" class="fos_user_registration_register signin">
     <div id="fos_user_registration_form">
 
         <div class="form-group">
