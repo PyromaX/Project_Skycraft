@@ -40,3 +40,30 @@ nav li, .btn-user{
     border-radius: 0;
     margin-bottom: 0;
 }
+
+.barre {
+    width: 0;
+    border: 2px solid lightgray;
+    border-radius: 2px;
+    padding: 0;
+    height: 40vh;
+}
+.middle{
+    height: 32vh;
+    padding: 0;
+    margin: 0;
+    background-image: url("http://i.imgur.com/BGQOxDK.png");
+    background-size: cover;
+}
+
+.signin{
+    padding-right: 50px;
+}
+
+.login{
+    padding-left: 50px;
+}
+
+.modal{
+    z-index: 4000;
+}

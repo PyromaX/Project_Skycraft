@@ -15,14 +15,6 @@
     <body>
         <header>
             <div id="myCarousel" class="carousel slide banniere" data-ride="carousel">
-                <!-- Indicators -->
-                {#<ol class="carousel-indicators">#}
-                    {#<li data-target="#myCarousel" data-slide-to="0" class="active"></li>#}
-                    {#<li data-target="#myCarousel" data-slide-to="1"></li>#}
-                    {#<li data-target="#myCarousel" data-slide-to="2"></li>#}
-                {#</ol>#}
-
-                <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
                         <img src="http://i.imgur.com/VbQwHp2.jpg" alt="slide1">
@@ -68,10 +60,10 @@
                     {%  else %}
 
 
-                        <li class="col-sm-4"><button type="button" class="btn btn-default btn-user btn-block" data-toggle="modal" data-target="#myModal">Connexion</button></li>
+                        <li class="col-sm-4"><button type="button" id="scroll-top" class="btn btn-default btn-user btn-block" data-toggle="modal" data-target="#myModal">Connexion</button></li>
 
                         <div id="myModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-lg">
 
                                 <!-- Modal content-->
                                 <div class="modal-content">
@@ -83,8 +75,9 @@
                                         <div class="col-xs-5">
                                             {{ render(controller('FOSUserBundle:Security:login')) }}
                                         </div>
-                                        <div class="col-xs-2">
-                                            <hr>
+                                        <div class="col-xs-2 middle">
+                                            <div class="container-fluid middle">
+                                            </div>
                                         </div>
                                         <div class="col-xs-5">
                                             {{ render(controller('FOSUserBundle:Registration:register')) }}
@@ -107,6 +100,7 @@
         {% javascripts
             'js/framework/jquery-3.2.1.min.js'
             'js/framework/bootstrap.js'
+            'js/Nav.js'
         %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
