@@ -21,7 +21,12 @@ nav li, .btn-user{
 
 .banniere {
     height:200px;
-    background-image: url('http://i.imgur.com/VbQwHp2.jpg');
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.item {
+    height:200px;
 }
 
 .nav-contain {
