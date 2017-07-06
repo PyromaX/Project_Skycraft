@@ -3,6 +3,8 @@
 <form name="fos_user_registration_form" method="post" action="{{ path("fos_user_registration_register") }}" class="fos_user_registration_register signin">
     <div id="fos_user_registration_form">
 
+        {{ form_row(form._token) }}
+
         <div class="form-group">
             <label class="control-label required" for="fos_user_registration_form_username">Pseudo</label>
             <input type="text" id="fos_user_registration_form_username" name="fos_user_registration_form[username]" required="required" maxlength="180" pattern=".{2,}" placeholder="Votre pseudo exact In-Game" class="form-control" />
