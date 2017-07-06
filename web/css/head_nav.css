@@ -57,11 +57,11 @@ nav li, .btn-user{
 }
 
 .signin{
-    padding-right: 50px;
+    padding: 0 40px;
 }
 
 .login{
-    padding-left: 50px;
+    padding: 0 40px;
 }
 
 .modal{
