@@ -14,6 +14,18 @@
     </head>
     <body>
         <header>
+
+            {% for label, flashes in app.session.flashbag.all %}
+                {% for flash in flashes %}
+                    <div class="row header-alert">
+                        <div class="alert alert-{{ label }} col-sm-8 col-sm-offset-2">
+                            {{ flash }}
+                            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
             <div id="myCarousel" class="carousel slide banniere" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="item active">
@@ -95,6 +107,7 @@
             </nav>
         </header>
         <main>
+            {% block layout %}{% endblock %}
             {% block body %}{% endblock %}
         </main>
         {% javascripts

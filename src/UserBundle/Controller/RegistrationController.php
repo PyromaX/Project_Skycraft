@@ -80,6 +80,12 @@ class RegistrationController extends Controller
                 return $response;
             }
 
+            else {
+
+                $request->getSession()->getFlashBag()->add('warning', 'Le formulaire d\'inscription est invalide, veuillez réessayer');
+                return $this->redirectToRoute('core_homepage');
+            }
+
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::REGISTRATION_FAILURE, $event);
 
@@ -88,7 +94,7 @@ class RegistrationController extends Controller
             }
         }
 
-        return $this->render('@FOSUser/Registration/register.html.twig', array(
+        return $this->render('@FOSUser/Registration/register_content.html.twig', array(
             'form' => $form->createView(),
         ));
     }

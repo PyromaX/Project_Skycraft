@@ -57,7 +57,7 @@ class EmailConfirmationListener implements EventSubscriberInterface
 
     public function onFormSuccess(FormEvent $event)
     {
-        $url = $this->router->generate('core');
+        $url = $this->router->generate('core_homepage');
 
         $event->setResponse(new RedirectResponse($url));
     }

@@ -45,7 +45,10 @@ class SecurityController extends Controller
         if (!$error instanceof AuthenticationException) {
             $error = null; // The value does not come from the security component.
         }
-
+        else{
+            $request->getSession()->getFlashBag()->add('warning', 'Compte invalide, veuillez confirmer votre adresse email');
+            return $this->redirectToRoute('core_homepage');
+        }
         // last username entered by the user
         $lastUsername = (null === $session) ? '' : $session->get($lastUsernameKey);
 
@@ -70,7 +73,7 @@ class SecurityController extends Controller
      */
     protected function renderLogin(array $data)
     {
-        return $this->render('@FOSUser/Security/login.html.twig', $data);
+        return $this->render('@FOSUser/Security/login_content.html.twig', $data);
     }
 
     public function checkAction()

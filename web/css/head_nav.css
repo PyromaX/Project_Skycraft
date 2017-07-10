@@ -67,3 +67,15 @@ nav li, .btn-user{
 .modal{
     z-index: 4000;
 }
+
+.header-alert {
+    padding-top: 70px;
+    position: absolute;
+    width: 100%;
+    z-index: 2000;
+}
+
+.header-alert *{
+    opacity: 0.9;
+    text-align: center;
+}
