@@ -7,9 +7,34 @@
     padding-top: 70px;
 }
 
+@media screen and (max-width: 767px) {
+    .logo-center{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .logo-nav{
+        display: none;
+    }
+    .logo-center {
+        padding: 0;
+        padding-top: 7px;
+        height: 50px;
+    }
+    .logo-center a {
+        height: 43px;
+        background-image: url("http://i.imgur.com/ieiO0Fj.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+
 .logo-nav{
     position: absolute;
     top: -4.5vw;
+    z-index: 20;
 }
 
 nav li, .btn-user{
@@ -19,13 +44,34 @@ nav li, .btn-user{
     color: #337ab7;
 }
 
+nav li a{
+    border-radius: 5px;
+}
+
+.btn-user{
+    padding: 9px 15px;
+}
+
 .banniere {
+    background-color: #222222;
     height:200px;
     padding-right: 0;
     padding-left: 0;
 }
 
 .item {
+    height:200px;
+}
+
+@media screen and (max-width: 950px) {
+    .carousel-inner > .item > img{
+        max-height: 100%;
+        max-width: none;
+    }
+}
+
+
+.slider-content{
     height:200px;
 }
 
@@ -41,6 +87,10 @@ nav li, .btn-user{
     margin-bottom: 0;
 }
 
+.nav-global > *, .nav-global > * > * {
+    padding: 0 0;
+}
+
 .barre {
     width: 0;
     border: 2px solid lightgray;
@@ -48,12 +98,14 @@ nav li, .btn-user{
     padding: 0;
     height: 40vh;
 }
+
 .middle{
     height: 32vh;
     padding: 0;
     margin: 0;
     background-image: url("http://i.imgur.com/BGQOxDK.png");
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .signin{

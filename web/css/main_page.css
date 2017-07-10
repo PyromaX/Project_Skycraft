@@ -2,7 +2,47 @@ body {
     background-color: lightgray;
 }
 
+.background{
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 73vh;
+    background-color: #222222;
+    overflow: hidden;
+}
+
 .cont {
     background-color: white;
     width: 70%;
+}
+
+.content-confirm{
+    width: 70%;
+}
+
+.confirm-email {
+    background-color: white;
+    margin-top: 15%;
+    padding: 15px 30px;
+    border: 4px solid #337ab7;
+    border-radius: 6px;
+}
+
+.confirm-email h3 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
+}
+
+.btn-return{
+    text-align: center;
+    font-weight: bolder;
+    font-size: large;
+    color: #337ab7;
+    background-color: #222222;
+    border: 2px solid #222222;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 9px 15px;
 }

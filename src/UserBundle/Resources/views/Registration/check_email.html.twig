@@ -3,7 +3,12 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-    <div class="container-fluid container cont">
-        <p> Un e-mail a été envoyé à {{user.email}}. Il contient un lien d'activation auquel vous devez cliquer pour activer votre compte.</p>
+    <div class="background">
+        <div class="container-fluid container content-confirm">
+            <div class="confirm-email col-sm-12">
+                <h3> Un e-mail a été envoyé à {{user.email}}. Il contient un lien afin de confirmer l'activation de votre compte.</h3>
+                <button class="btn btn-default btn-return col-xs-4 col-xs-offset-4"><a href="{{ path('core_homepage') }}">retour à l'accueil</a></button>
+            </div>
+        </div>
     </div>
 {% endblock fos_user_content %}
