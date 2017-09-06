@@ -37,6 +37,18 @@
     z-index: 20;
 }
 
+.navbar-toggle .icon-bar {
+    border: 2px solid white;
+    width: 25px;
+    border-radius: 4px;
+}
+
+.bouton-collapse {
+    border: 2px solid #337ab7;
+    margin: 5px 20px;
+    padding: 8px 9px;
+}
+
 nav li, .btn-user{
     text-align: center;
     font-weight: bolder;
