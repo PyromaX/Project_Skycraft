@@ -1,34 +1,64 @@
 <template name="header">
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{pathFor 'home'}}">Microscope</a>
+    <div id="myCarousel" class="carousel slide banniere" data-ride="carousel">
+        <div class="carousel-inner slider-content">
+            <div class="item active">
+                <img src="http://i.imgur.com/VbQwHp2.jpg" alt="slide1">
+            </div>
+
+            <div class="item">
+                <img src="http://i.imgur.com/GOHYOYs.jpg" alt="slide2">
+            </div>
+
+            <div class="item">
+                <img src="http://i.imgur.com/0Q3dgfI.jpg" alt="slide3">
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="navigation">
-            <ul class="nav navbar-nav">
-                <li class="{{activeRouteClass 'home' 'newPosts'}}">
-                    <a href="{{pathFor 'newPosts'}}">New</a>
-                </li>
-                <li class="{{activeRouteClass 'bestPosts'}}">
-                    <a href="{{pathFor 'bestPosts'}}">Best</a>
-                </li>
-                {{#if currentUser}}
-                    <li class="{{activeRouteClass 'postSubmit'}}">
-                        <a href="{{pathFor 'postSubmit'}}">Submit Post</a>
+    </div>
+    <nav class="navbar navbar-inverse nav-global" data-spy="affix" data-offset-top="197">
+        <div class="container-fluid col-xs-12">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle bouton-collapse" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav col-sm-5 nav-contain">
+                    <li class="col-sm-4 "><a href="{{pathFor 'home'}}">Accueil</a></li>
+                    <li class="col-sm-4"><a href="#">Boutique</a></li>
+                    <li class="col-sm-4"><a href="#">Votes</a></li>
+                </ul>
+                <div class="nav col-sm-2 logo-center">
+                    <a class="col-sm-12" href="{{pathFor 'home'}}"><img src="http://i.imgur.com/ArqTETp.png" title="logo" class="col-sm-12 logo-nav"/></a>
+                </div>
+                <ul class="nav col-sm-5 nav-contain ">
+                    <li class="col-sm-4"><a href="#">Support</a></li>
+                    <li class="col-sm-4"><a href="#">Profil</a></li>
+                    {{#if currentUser}}
+                    <li class="col-sm-4">
+                        <div class="dropdown">
+                            <a class="btn btn-default dropdown-toggle btn-block btn-user" data-toggle="dropdown">
+                                {{ currentUser }}
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" >
+                                <!--{% if is_granted('ROLE_MODO', 'ROLE_ADMIN') %}-->
+                                <!--<li><a href="">Panneau de commandes</a></li>-->
+                                <!--{%  endif %}-->
+                                <li><a href="#">Déconnexion</a></li>
+                            </ul>
+                        </div>
                     </li>
-                    <li class="dropdown">
-                        {{> notifications}}
-                    </li>
-                {{/if}}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                {{> loginButtons}}
-            </ul>
+                    {{ else }}
+
+
+                    <li class="col-sm-4"><button type="button" id="scroll-top" class="btn btn-default btn-user btn-block">{{> loginButtons}}</button></li>
+
+
+                    {{/if}}
+                </ul>
+            </div>
         </div>
     </nav>
 </template>
