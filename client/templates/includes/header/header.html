@@ -67,27 +67,46 @@
                     </ul>
 
                     <ul class="right col m5 no-all sky-blue">
-                        <li class="col m4 no-all"><a class="text-center no-all" href="#">Support</a></li>
-                        <li class="col m4 no-all"><a class="text-center no-all" href="#">Profil</a></li>
+                        <li class="col m4 no-all"><a class="text-center no-all" href="#">Jeux</a></li>
+                        <li class="col m4 no-all"><a class="text-center no-all" href="#">Info</a></li>
                         {{#if currentUser}}
                             <li class="col m4 no-all">
-                                <li><a class="waves-effect waves-light dropdown-button text-center no-all" href="#" data-activates="dropdown1" dropdown>{{currentUser.username}}<i class="material-icons right">arrow_drop_down</i></a></li>
-                                    <ul class="dropdown-content" id="dropdown1">
-                                        <li><a class="grey darken-4 waves-effect waves-light" href="#" logout>Déconnexion</a></li>
-                                    </ul>
+                                {{> userDropdown}}
                             </li>
                         {{ else }}
-                            <li class="col m4 no-all"><a class="col m12 waves-effect waves-light modal-trigger text-center" href="#modal1">Connexion</a></li>
-
-                            <div id="modal1" class="modal grey darken-4">
-                                <div class="modal-content grey darken-4">
-                                    {{> loginModal}}
-                                </div>
-                            </div>
+                            {{>openModal}}
                         {{/if}}
                     </ul>
                 </div>
             {{/if}}
         </div>
     </nav>
+</template>
+
+<!-- Somewhere else .. -->
+
+<template name="openModal">
+    <li class="col m4 no-all"><a class="col m12 waves-effect waves-light modal-trigger text-center" href="#modal1">Connexion</a></li>
+    <div id="modal1" class="modal grey darken-4">
+        <div class="modal-content grey darken-4">
+            {{> loginModal}}
+        </div>
+    </div>
+</template>
+
+<template name="userDropdown">
+    <li class="col m12 no-all">
+        <a class="waves-effect waves-light text-center col m12 no-all dropdown-button" href='#' data-activates='dropdown3'>
+            <span class="col m7 no-all right-align">{{currentUser.username}} </span>
+            <i class="material-icons col m5 no-all left-align">arrow_drop_down</i>
+        </a>
+    </li>
+    <ul id='dropdown3' class='dropdown-content'>
+        {{>contentDropdown}}
+    </ul>
+</template>
+
+<template name="contentDropdown">
+    <li><a class="grey darken-4 waves-effect waves-light text-center" href="#">Profil</a></li>
+    <li><a class="grey darken-4 waves-effect waves-light text-center" href="#" logout>Déconnexion</a></li>
 </template>

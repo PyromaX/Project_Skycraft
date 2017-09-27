@@ -127,3 +127,6 @@ html, body, .block {
     padding-right: 1em!important;
     padding-left: 1em!important;
 }
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #3f3f3f inset !important;
+}

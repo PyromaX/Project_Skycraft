@@ -12,7 +12,12 @@ Template.loginModal.events({
         let email = event.target.email.value;
         let password = event.target.password.value;
         Meteor.loginWithPassword(email, password, function (error) {
-            Materialize.toast(error.message, 6000, 'red')();
+            if (error){
+                Materialize.toast(error.message, 6000, 'red')();
+            }
+            else {
+                $('#modal1').modal('close');
+            }
         });
     },
     'keyup [password-repeat]': function (event, instance) {
@@ -45,7 +50,8 @@ Template.loginModal.events({
                     }else{
                         Meteor.loginWithPassword(email, password, function (error) {
                             Router.go("home");
-                            Materialize.toast("Bienvenue sur Skycraft", 6000, 'green')
+                            Materialize.toast("Bienvenue sur Skycraft", 6000, 'green');
+                            $('#modal1').modal('close')
                         });
                     }
                 } )
@@ -53,7 +59,7 @@ Template.loginModal.events({
                 instance.passwordError.set("Le formulaire n'est pas valide");
             }
         }else{
-            Materialize.toast("Le formulaire d'inscription n'est pas valide", 6000, 'red')
+            Materialize.toast("Le formulaire d'inscription n'est pas valide", 6000, 'red');
         }
 
     }
