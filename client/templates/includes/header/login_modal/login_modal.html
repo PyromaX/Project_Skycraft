@@ -1,0 +1,60 @@
+<template name="loginModal">
+    <div class="col m4">
+        <form login class="" autocomplete="nope">
+            <div class="row no-margin">
+                <div class="input-field dark-grey s10">
+                    <input type="text" class="validate dark-grey no-margin" id="email" name="email"  required>
+                    <label for="username">Email</label>
+                </div>
+            </div>
+            <div class="row no-margin">
+                <div class="input-field s10">
+                    <input type="password" class="validate dark-grey no-margin" id="password" name="password" required>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="row no-margin">
+                <div class="center-align">
+                    <button class="btn green waves-light waves-effect btn-validation"><span>Connexion</span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col m4">
+        <div class="middle"></div>
+    </div>
+    <div class="col m4">
+        <form signin class="" autocomplete="nope">
+            <div class="row no-margin">
+                <div class="input-field dark-grey s10">
+                    <input type="text" class="validate dark-grey no-margin" id="signinPseudo" name="signinPseudo" maxlength="35" data-length="35" minlength="5" pseudo required>
+                    <label for="username">Pseudo in-Game</label>
+                </div>
+            </div>
+            <div class="row no-margin">
+                <div class="input-field dark-grey s10">
+                    <input type="text" class="validate dark-grey no-margin" id="signinEmail" name="signinEmail" maxlength="35" data-length="35" minlength="5" email required>
+                    <label for="username">Email</label>
+                </div>
+            </div>
+            <div class="row no-margin">
+                <div class="input-field s10">
+                    <input type="password" class="validate dark-grey no-margin" id="signin-password" maxlength="100" data-length="100" password name="password" required >
+                    <label for="password" >Password</label>
+                </div>
+            </div>
+            <div class="row no-margin">
+                <div class="input-field s10">
+                    <input type="password" class="validate dark-grey no-margin" maxlength="100" data-length="100" password-repeat id="password-repeat" name="passwordRepeat" required >
+                    <label for="password-repeat" >Répetez le Password</label>
+                </div>
+            </div>
+            <p class="red-text small-info">{{passwordError}}</p>
+            <div class="row no-margin">
+                <div class="center-align">
+                    <button class="btn orange waves-light waves-effect btn-validation"><span>Inscription</span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</template>

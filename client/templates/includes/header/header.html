@@ -1,0 +1,93 @@
+<template name="header">
+    {{#if isDesktop}}
+    <div id="myCarousel" class="carousel carousel-slider slider-content hide-on-med-and-down">
+        <div class="carousel-item item">
+            <img src="http://i.imgur.com/VbQwHp2.jpg" alt="slide1">
+        </div>
+
+        <div class="carousel-item">
+                <img src="http://i.imgur.com/GOHYOYs.jpg" alt="slide2">
+        </div>
+
+        <div class="carousel-item">
+            <img src="http://i.imgur.com/0Q3dgfI.jpg" alt="slide3">
+        </div>
+    </div>
+    {{/if}}
+
+    <nav class="target grey darken-4">
+        <div class="nav-wrapper">
+            <ul id="slide-out" class="side-nav no-all">
+                <li class="no-all"><a class="text-center no-all" href="{{pathFor 'home'}}">Accueil</a></li>
+                <li class="no-all"><a class="text-center no-all" href="#">Boutique</a></li>
+                <li class="no-all"><a class="text-center no-all" href="#">Votes</a></li>
+                <li class="no-all"><a class="text-center no-all" href="#">Support</a></li>
+                <li class="no-all"><a class="text-center no-all" href="#">Profil</a></li>
+                {{#if currentUser}}
+                    <li class="no-all">
+                    <li><a class="dropdown-button text-center no-all" href="#" data-activates="dropdown1">{{currentUser}}<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <ul class="dropdown-content" id="dropdown1">
+                        <!--{% if is_granted('ROLE_MODO', 'ROLE_ADMIN') %}-->
+                        <!--<li><a href="">Panneau de commandes</a></li>-->
+                        <!--{%  endif %}-->
+                        <li><a href="#">Déconnexion</a></li>
+                    </ul>
+                    </li>
+                {{ else }}
+                    <li class="no-all"><a class="text-center no-all" href="#">Connexion</a></li>
+                {{/if}}
+            </ul>
+
+            {{#if isPhone}}
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+            {{/if}}
+
+            {{#if isDesktop}}
+                <div class="col m12 row no-all logo-content hide-on-small-only">
+                    <div class="center-block col m12 no-all">
+                        <a class="no-all logo" href="{{pathFor 'home'}}">
+                                <img src="http://i.imgur.com/ArqTETp.png" title="logo" class="col m12 logo-nav no-all"/>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col m12 row no-all hide-on-small-only">
+                    <ul class="col m5 no-all sky-blue">
+                        <li class="col m4 no-all"><a class="text-center no-all" href="{{pathFor 'home'}}">Accueil</a></li>
+                        <li class="col m4 no-all"><a class="text-center no-all" href="#">Boutique</a></li>
+                        <li class="col m4 no-all"><a class="text-center no-all" href="#">Votes</a></li>
+                    </ul>
+
+                    <ul class="center-block col m2 no-all">
+                        <!--<li class="m12 no-all">-->
+                            <!--<a class="col m12 no-all" href="{{pathFor 'home'}}">-->
+                                <!--<img src="http://i.imgur.com/ArqTETp.png" title="logo" class="img-responsive logo-nav"/>-->
+                            <!--</a>-->
+                        <!--</li>-->
+                    </ul>
+
+                    <ul class="right col m5 no-all sky-blue">
+                        <li class="col m4 no-all"><a class="text-center no-all" href="#">Support</a></li>
+                        <li class="col m4 no-all"><a class="text-center no-all" href="#">Profil</a></li>
+                        {{#if currentUser}}
+                            <li class="col m4 no-all">
+                                <li><a class="waves-effect waves-light dropdown-button text-center no-all" href="#" data-activates="dropdown1" dropdown>{{currentUser.username}}<i class="material-icons right">arrow_drop_down</i></a></li>
+                                    <ul class="dropdown-content" id="dropdown1">
+                                        <li><a class="grey darken-4 waves-effect waves-light" href="#" logout>Déconnexion</a></li>
+                                    </ul>
+                            </li>
+                        {{ else }}
+                            <li class="col m4 no-all"><a class="col m12 waves-effect waves-light modal-trigger text-center" href="#modal1">Connexion</a></li>
+
+                            <div id="modal1" class="modal grey darken-4">
+                                <div class="modal-content grey darken-4">
+                                    {{> loginModal}}
+                                </div>
+                            </div>
+                        {{/if}}
+                    </ul>
+                </div>
+            {{/if}}
+        </div>
+    </nav>
+</template>
