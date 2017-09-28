@@ -17,36 +17,52 @@
 
     <nav class="target grey darken-4">
         <div class="nav-wrapper">
-            <ul id="slide-out" class="side-nav no-all">
+            <ul id="slide-out" class="side-nav no-all bg-slide sky-blue">
                 <li class="no-all"><a class="text-center no-all" href="{{pathFor 'home'}}">Accueil</a></li>
+                <hr>
                 <li class="no-all"><a class="text-center no-all" href="#">Boutique</a></li>
+                <hr>
                 <li class="no-all"><a class="text-center no-all" href="#">Votes</a></li>
+                <hr>
                 <li class="no-all"><a class="text-center no-all" href="#">Support</a></li>
+                <hr>
                 <li class="no-all"><a class="text-center no-all" href="#">Profil</a></li>
+                <hr>
                 {{#if currentUser}}
                     <li class="no-all">
-                    <li><a class="dropdown-button text-center no-all" href="#" data-activates="dropdown1">{{currentUser}}<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <ul class="dropdown-content" id="dropdown1">
-                        <!--{% if is_granted('ROLE_MODO', 'ROLE_ADMIN') %}-->
-                        <!--<li><a href="">Panneau de commandes</a></li>-->
-                        <!--{%  endif %}-->
-                        <li><a href="#">Déconnexion</a></li>
-                    </ul>
+                        <ul class="collapsible2 row no-all" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header">
+                                    <span class="col s7 no-all right-align">{{currentUser.username}} </span>
+                                    <i class="material-icons col s5 no-all left-align">arrow_drop_down</i>
+                                </div>
+                                <div class="collapsible-body" style="background-color: #3f3f3f!important;">
+                                        {{>contentDropdown}}
+                                </div>
+                            </li>
+                        </ul>
                     </li>
                 {{ else }}
-                    <li class="no-all"><a class="text-center no-all" href="#">Connexion</a></li>
+                    {{> loginModal }}
                 {{/if}}
             </ul>
 
             {{#if isPhone}}
+                <div class="col s12 row no-all logo-content show-on-small">
+                    <div class="center-block col s12 no-all">
+                        <a class="no-all logo" href="{{pathFor 'home'}}">
+                            <img src="http://i.imgur.com/ArqTETp.png" title="logo" class="col s12 logo-nav no-all"/>
+                        </a>
+                    </div>
+                </div>
                 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
             {{/if}}
 
-            {{#if isDesktop}}
+            {{#if or isDesktop isTablet}}
                 <div class="col m12 row no-all logo-content hide-on-small-only">
                     <div class="center-block col m12 no-all">
                         <a class="no-all logo" href="{{pathFor 'home'}}">
-                                <img src="http://i.imgur.com/ArqTETp.png" title="logo" class="col m12 logo-nav no-all"/>
+                            <img src="http://i.imgur.com/ArqTETp.png" title="logo" class="col m12 logo-nav no-all logo-limit"/>
                         </a>
                     </div>
                 </div>
@@ -58,13 +74,7 @@
                         <li class="col m4 no-all"><a class="text-center no-all" href="#">Votes</a></li>
                     </ul>
 
-                    <ul class="center-block col m2 no-all">
-                        <!--<li class="m12 no-all">-->
-                            <!--<a class="col m12 no-all" href="{{pathFor 'home'}}">-->
-                                <!--<img src="http://i.imgur.com/ArqTETp.png" title="logo" class="img-responsive logo-nav"/>-->
-                            <!--</a>-->
-                        <!--</li>-->
-                    </ul>
+                    <ul class="center-block col m2 no-all"></ul>
 
                     <ul class="right col m5 no-all sky-blue">
                         <li class="col m4 no-all"><a class="text-center no-all" href="#">Jeux</a></li>
@@ -87,8 +97,8 @@
 
 <template name="openModal">
     <li class="col m4 no-all"><a class="col m12 waves-effect waves-light modal-trigger text-center" href="#modal1">Connexion</a></li>
-    <div id="modal1" class="modal grey darken-4">
-        <div class="modal-content grey darken-4">
+    <div id="modal1" class="modal grey darken-3">
+        <div class="modal-content">
             {{> loginModal}}
         </div>
     </div>
@@ -107,6 +117,10 @@
 </template>
 
 <template name="contentDropdown">
-    <li><a class="grey darken-4 waves-effect waves-light text-center" href="#">Profil</a></li>
-    <li><a class="grey darken-4 waves-effect waves-light text-center" href="#" logout>Déconnexion</a></li>
+    <li class="drop-btn">
+        <a class="grey darken-4 waves-effect waves-light text-center" href="#">Profil</a>
+    </li>
+    <li class="drop-btn">
+        <a class="grey darken-4 waves-effect waves-light text-center" href="#" logout>Déconnexion</a>
+    </li>
 </template>

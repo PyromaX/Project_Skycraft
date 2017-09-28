@@ -20,6 +20,8 @@ Template.header.onRendered(function () {
         draggable: true // Choose whether you can drag to open on touch screens,
     });
 
+    $('.collapsible2').collapsible();
+
     /*----------------------------------------------------------------------------------*/
     /*                                   AFFIX                                          */
     /*----------------------------------------------------------------------------------*/
@@ -56,6 +58,10 @@ Template.contentDropdown.events({
             });
         })
     }
+});
+
+Template.contentDropdown.onRendered(function () {
+    $('.collapsible2').collapsible();
 });
 
 Template.userDropdown.onRendered(function () {

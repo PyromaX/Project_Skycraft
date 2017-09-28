@@ -1,60 +1,88 @@
 <template name="loginModal">
-    <div class="col m4">
-        <form login class="" autocomplete="nope">
-            <div class="row no-margin">
-                <div class="input-field dark-grey s10">
-                    <input type="email" class="validate dark-grey no-margin" id="email" name="email"  required>
-                    <label for="username">Email</label>
-                </div>
+    {{#if or isDesktop isTablet}}
+            <div class="col m4 border-content grey darken-4">
+                {{> login }}
             </div>
-            <div class="row no-margin">
-                <div class="input-field s10">
-                    <input type="password" class="validate dark-grey no-margin" id="password" name="password" required>
-                    <label for="password">Password</label>
-                </div>
+            <div class="col m4">
+                <div class="middle"></div>
             </div>
-            <div class="row no-margin">
-                <div class="center-align">
-                    <button class="btn green waves-light waves-effect btn-validation"><span>Connexion</span></button>
-                </div>
+            <div class="col m4 border-content grey darken-4">
+                {{> signin }}
             </div>
-        </form>
-    </div>
-    <div class="col m4">
-        <div class="middle"></div>
-    </div>
-    <div class="col m4">
-        <form signin class="" autocomplete="nope">
-            <div class="row no-margin">
-                <div class="input-field dark-grey s10">
-                    <input type="text" class="validate dark-grey no-margin" id="signinPseudo" name="signinPseudo" maxlength="50" data-length="50" minlength="5" pseudo required>
-                    <label for="username">Pseudo in-Game</label>
-                </div>
+    {{/if}}
+
+    {{#if isPhone}}
+            <ul class="collapsible row no-all" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header"><span class="text-center col s12 no-all">Connexion</span></div>
+                    <div class="collapsible-body bg-collaps">
+                        {{> login }}
+                    </div>
+                    <hr>
+                </li>
+                <li>
+                    <div class="collapsible-header"><span class="text-center col s12 no-all">Inscription</span></div>
+                    <div class="collapsible-body bg-collaps">
+                        {{> signin }}
+                    </div>
+                </li>
+            </ul>
+    {{/if}}
+</template>
+
+<template name="login">
+    <form login class="" autocomplete="nope">
+        <div class="row no-margin ajust-place">
+            <div class="input-field dark-grey s10">
+                <input type="email" class="validate dark-grey no-margin" id="email" name="email"  required>
+                <label for="username">Email</label>
             </div>
-            <div class="row no-margin">
-                <div class="input-field dark-grey s10">
-                    <input type="email" class="validate dark-grey no-margin" id="signinEmail" name="signinEmail" maxlength="75" data-length="75" minlength="5" email required>
-                    <label for="username">Email</label>
-                </div>
+        </div>
+        <div class="row no-margin ajust-place">
+            <div class="input-field s10">
+                <input type="password" class="validate dark-grey no-margin" id="password" name="password" required>
+                <label for="password">Password</label>
             </div>
-            <div class="row no-margin">
-                <div class="input-field s10">
-                    <input type="password" class="validate dark-grey no-margin" id="signin-password" maxlength="100" data-length="100" password name="password" required >
-                    <label for="password" >Password</label>
-                </div>
+        </div>
+        <div class="row no-margin ajust-place">
+            <div class="center-align">
+                <button class="btn green waves-light waves-effect btn-validation"><span>Connexion</span></button>
             </div>
-            <div class="row no-margin">
-                <div class="input-field s10">
-                    <input type="password" class="validate dark-grey no-margin" maxlength="100" data-length="100" password-repeat id="password-repeat" name="passwordRepeat" required >
-                    <label for="password-repeat" >Répetez le Password</label>
-                </div>
+        </div>
+    </form>
+</template>
+
+<template name="signin">
+    <form signin class="" autocomplete="nope">
+        <div class="row no-margin">
+            <div class="input-field dark-grey s10">
+                <input type="text" class="validate dark-grey no-margin" id="signinPseudo" name="signinPseudo" maxlength="50" data-length="50" minlength="5" pseudo required>
+                <label for="username">Pseudo in-Game</label>
             </div>
-            <p class="red-text small-info">{{passwordError}}</p>
-            <div class="row no-margin">
-                <div class="center-align">
-                    <button class="btn orange waves-light waves-effect btn-validation"><span>Inscription</span></button>
-                </div>
+        </div>
+        <div class="row no-margin">
+            <div class="input-field dark-grey s10">
+                <input type="email" class="validate dark-grey no-margin" id="signinEmail" name="signinEmail" maxlength="75" data-length="75" minlength="5" email required>
+                <label for="username">Email</label>
             </div>
-        </form>
-    </div>
+        </div>
+        <div class="row no-margin">
+            <div class="input-field s10">
+                <input type="password" class="validate dark-grey no-margin" id="signin-password" maxlength="100" data-length="100" password name="password" required >
+                <label for="password" >Password</label>
+            </div>
+        </div>
+        <div class="row no-margin">
+            <div class="input-field s10">
+                <input type="password" class="validate dark-grey no-margin" maxlength="100" data-length="100" password-repeat id="password-repeat" name="passwordRepeat" required >
+                <label for="password-repeat" >Répetez le Password</label>
+            </div>
+        </div>
+        <p class="red-text small-info">{{passwordError}}</p>
+        <div class="row no-margin">
+            <div class="center-align">
+                <button class="btn orange waves-light waves-effect btn-validation"><span>Inscription</span></button>
+            </div>
+        </div>
+    </form>
 </template>

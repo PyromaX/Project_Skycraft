@@ -73,6 +73,8 @@ Template.loginModal.onCreated(function () {
 Template.loginModal.onRendered(function () {
     //add your statement here
     $('input').characterCounter();
+
+    $('.collapsible').collapsible();
 });
 
 Template.loginModal.onDestroyed(function () {
