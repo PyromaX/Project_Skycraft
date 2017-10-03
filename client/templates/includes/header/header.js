@@ -4,7 +4,9 @@ Template.header.helpers({
 
 Template.header.events({
     //add your events here
-
+    'click .modal-trigger': function () {
+        window.scrollTo(0, 0);
+    }
 });
 
 Template.header.onCreated(function () {

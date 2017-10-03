@@ -89,6 +89,7 @@ html, body, .block {
 
 .sky-blue * {
     color: #56CCF2!important;
+    font-family: 'Spinnaker', sans-serif;
 }
 .sky-blue li a {
     font-size: 1.4em;
@@ -122,9 +123,6 @@ html, body, .block {
 }
 .modal {
     padding: 30px!important;
-}
-.modal-overlay {
-    z-index: ;
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -170,7 +168,7 @@ input[type=password]:not(.browser-default){
 .bg-slide {
     background-color: rgba(33,33,33,0.93)!important;
     border-right: 4px solid #56CCF2;
-    width: 70% !important;
+    width: 65% !important;
     padding-top: 10px!important;
 }
 .bg-slide hr {
