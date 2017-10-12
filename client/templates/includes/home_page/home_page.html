@@ -1,0 +1,31 @@
+<template name="homePage">
+        <div class="row no-all">
+            <div class="col l3 no-all">
+                {{>ranking}}
+                <div class="hide-on-med-only">
+                    {{>shop}}
+                </div>
+                {{#if or isDesktop isTablet}}
+                    <div class="col m6 show-on-medium">
+                        {{>shop}}
+                        {{>serv}}
+                    </div>
+                {{/if }}
+
+            </div>
+            <div class="col m9 no-all">
+                <div class="col s12 no-all info">
+                    {{#if isDesktop}}
+                        <div class="col s12 l8 no-all stats hide-on-med-and-down">
+                            {{>game_commu}}
+                        </div>
+                    {{/if }}
+                    <div class="col s12 no-all hide-on-large-only">
+                        {{>piece}}
+                    </div>
+                    {{>serv}}
+                </div>
+                {{>news}}
+            </div>
+        </div>
+</template>

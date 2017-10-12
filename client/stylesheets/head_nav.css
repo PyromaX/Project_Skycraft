@@ -31,12 +31,14 @@
 }
 .logo{
     position: absolute;
-    left: 39%;
+    left: 41.7%;
     width: 16.6%;
     min-width: 100px;
+    z-index: 10!important;
 }
 .logo-nav {
     margin-top: -30%!important;
+    z-index: 10!important;
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -53,18 +55,19 @@
 }
 /* Class for when element is pinned*/
 .pinned {
-   position: fixed !important;
+    position: fixed !important;
+    z-index: 9!important;
+    margin-bottom: 70px!important;
 }
-@media screen and(min-width: 990px){
+@media only screen and (max-width:990px){
     .target{
         position: fixed!important;
+        z-index: 9!important;
+        top: 0;
     }
     .home-content{
-        margin-top: 70px;
+        margin-top: 65px!important;
     }
-}
-.pinned {
-    margin-bottom: 70px!important;
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -185,4 +188,12 @@ hr:after {
     border-radius: 8px!important;
     border: 3px solid #56CCF2 !important;
     margin-bottom: -9px!important;
+}
+
+/*----------------------------------------------------------------------------------*/
+/*                                   MOBILE                                         */
+/*----------------------------------------------------------------------------------*/
+
+#sidenav-overlay {
+    z-index: 5!important;
 }

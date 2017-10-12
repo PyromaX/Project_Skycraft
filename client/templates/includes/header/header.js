@@ -15,6 +15,20 @@ Template.header.onCreated(function () {
 
 Template.header.onRendered(function () {
 
+    if (!Meteor.Device.isPhone()){
+        $(window).on('scroll', function (e) {
+            if ($(window).scrollTop() > 199) {
+                $('.home-content').css('margin-top', '65px');
+            }
+            else {
+                $('.home-content').css('margin-top', '0px');
+            }
+        });
+    }
+    else {
+        $('.home-content').css('margin-top', '56px!important');
+    }
+
     $('.button-collapse').sideNav({
         menuWidth: 300, // Default is 300
         edge: 'left', // Choose the horizontal origin

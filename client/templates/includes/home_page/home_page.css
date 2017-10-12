@@ -1,0 +1,123 @@
+html, body, .home-content {
+    background-color: #4f4f4f;
+}
+
+.ranking, .news {
+    height: 650px;
+}
+
+.shop, .info, .stats, .serv {
+    height: 320px;
+}
+
+.game, .commu {
+    height: 160px;
+    position: relative;
+}
+
+.format-content {
+    border-radius: 25px;
+    border: 5px solid #313B3E;
+    background-color: #333333;
+    margin: 20px!important;
+    height: 96%;
+}
+.format-content-spe {
+    border-radius: 25px;
+    border: 5px solid #313B3E;
+    background-color: #333333;
+    margin: 80px 40px 0 40px!important;
+    height: 40%;
+}
+.spe-img-left {
+    border-radius: 100px;
+    border: 5px solid #56CCF2;
+    background-color: #333333;
+    height: 100px;
+    width: 100px;
+    top: 63px;
+    left: 20px;
+    position: absolute;
+}
+
+.spe-img-right {
+    border-radius: 100px;
+    border: 5px solid #56CCF2;
+    background-color: #333333;
+    height: 100px;
+    width: 100px;
+    top: 63px;
+    right: 20px;
+    position: absolute;
+}
+
+.spe-img-1 {
+    width: 80px;
+    height: 80px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.spe-img-2 {
+    width: 90px;
+    height: 90px;
+    border-radius: 100px;
+}
+
+.format-text {
+    font-size: 1.5rem;
+    color: #E0E0E0;
+    padding: 0 25px;
+}
+
+.format-titre {
+    color: #56CCF2;
+}
+
+.piece-right, .piece-left {
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+    border: 5px solid #56CCF2;
+    background-color: #333333;
+    height: 25rem;
+    width: 25rem;
+}
+
+.piece-right{
+    background-image: url("./images/minecraft-pocket-edition2.png");
+    background-size: cover;
+}
+
+.piece-left {
+    background-image: url("./images/Diamond-Sword-icon.png");
+    background-size: 20rem;
+}
+
+.piece-img-1 {
+    width: 250px;
+    height: 250px;
+    border-radius: 100px;
+}
+
+.piece-img-2 {
+    width: 250px;
+    height: 250px;
+    border-radius: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
